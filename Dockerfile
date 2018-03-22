@@ -1,10 +1,17 @@
-FROM openjdk:8-jdk
+FROM ubuntu:latest
 MAINTAINER <chinthakarukshan@gmail.com>
 
-EXPOSE 4567
+#EXPOSE 4567
 
-VOLUME /data
+WORKDIR /opt
 
-COPY target/cloud-docker-project-1.0-SNAPSHOT.jar /app/cloud-docker-project-1.0-SNAPSHOT.jar
+RUN \
+	wget -c --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz &&\
+	tar -xvf jdk-8u131-linux-x64.tar.gz && \
+	ls	
 
-CMD ["java", "-jar", "/app/cloud-docker-project-1.0-SNAPSHOT.jar"]
+#VOLUME /data
+
+#COPY target/cloud-docker-project-1.0-SNAPSHOT.jar /app/cloud-docker-project-1.0-SNAPSHOT.jar
+
+#CMD ["java", "-jar", "/app/cloud-docker-project-1.0-SNAPSHOT.jar"]
