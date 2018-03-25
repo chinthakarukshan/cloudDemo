@@ -14,10 +14,11 @@ RUN 	apt-get update && apt-get install -y wget && \
 
 ENV JAVA_HOME=/opt/jdk1.8.0_131	
 
-CMD ["/bin/bash"]
 
-#VOLUME /data
 
-#COPY target/cloud-docker-project-1.0-SNAPSHOT.jar /app/cloud-docker-project-1.0-SNAPSHOT.jar
+RUN mkdir /app
 
-#CMD ["java", "-jar", "/app/cloud-docker-project-1.0-SNAPSHOT.jar"]
+
+COPY target/cloud-docker-project-1.0-SNAPSHOT.jar /app/cloud-docker-project-1.0-SNAPSHOT.jar
+
+CMD ["java", "-jar", "/app/cloud-docker-project-1.0-SNAPSHOT.jar"]
